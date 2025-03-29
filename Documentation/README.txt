@@ -1,1 +1,0 @@
-This folder is dedicated to images for the documentation (https://github.com/buzzinglight/IanniX/wiki)
