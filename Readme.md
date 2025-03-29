@@ -1,6 +1,13 @@
 About IanniX
 ============
+This is a personal fork of the original [IanniX](https://github.com/buzzinglight/IanniX) project, a graphical real-time open-source sequencer for digital art.  
 IanniX is a graphical open-source sequencer, based on Iannis Xenakis works, for digital art. IanniX syncs via Open Sound Control (OSC) events and curves to your real-time environment.
+
+## Changes
+- Attempt to update for ARM64
+
+## License
+This project is licensed under the GNU General Public License (GPL), as per the original repository.
 
 Documentation
 ============
