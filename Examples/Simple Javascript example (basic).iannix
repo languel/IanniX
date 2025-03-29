@@ -1,0 +1,52 @@
+/*
+	IanniX score example: Simple Javascript example (basic) (c) by IanniX Association
+	This file was written by Guillaume Jacquemin.
+	
+	This IanniX score example is licensed under a
+	Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+	
+	You should have received a copy of the license along with this
+	work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
+*/
+
+/*
+ *	IanniX Score File
+ */
+
+
+//Creation of the score with script commands
+function makeWithScript() {
+	//Clear score
+	run("clear");
+	run("rotate 0 0 0");
+	run("center -8 5 0");
+	
+
+	//Loop from 0 to 24 lines
+	for(var index = 0 ; index < 25 ; index++) {
+		//Add curves with ID 1000, 1001, 1002, ...
+		run("add curve " + (1000 + index));
+		//Set the first point on the current curve
+		run("setPointAt current 0 " + (-index) + " 0");
+		//Set the second point on the current curve
+		run("setPointAt current 1 0 " + (24-index) + " 0");
+		
+		//Add a cursor with ID 0, 1, 2, ...
+		run("add cursor " + index);
+		//Link cursor to previous created curve
+		run("setCurve current lastCurve");
+		//Cursor speed = 5 secondes
+		run("setSpeed current auto 5");
+		//Mapping (spatial area where cursors runs)
+		run("setBoundsSource current -25 0   0 25");
+	}
+}
+
+
+/*
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ *	Made with IanniX 0.9.18
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ */
+
+

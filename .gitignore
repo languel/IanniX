@@ -1,0 +1,58 @@
+*.DS_Store
+*.user
+*.7pre1
+*.app/
+*.mov
+*-build
+Thumbs.db
+*.o
+Iannix.app
+.uv
+# Compiled object files
+*.o
+*.obj
+*.ko
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.so
+*.dll
+
+# Executables
+*.exe
+*.out
+IanniX.app/
+
+# Qt-specific files
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.qrc
+
+# Temporary files
+*~
+*.tmp
+
+# Build directories
+build/
+dist/
+out/
+
+# macOS-specific files
+.DS_Store
+._*
+
+# Other
+*.log
+*.swp
+*.swo
+
+moc*
+Makefile
+.qmake*

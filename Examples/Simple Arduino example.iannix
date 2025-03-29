@@ -1,0 +1,70 @@
+/*
+	IanniX score example: Simple Arduino example (c) by IanniX Association
+	This file was written by Guillaume Jacquemin.
+	
+	This IanniX score example is licensed under a
+	Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+	
+	You should have received a copy of the license along with this
+	work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
+*/
+
+/*
+ *	IanniX Score File
+ */
+
+
+//Ask user for parameters before creation of the score
+function askUserForParameters() {
+	//Name
+	title("Serial example");
+	//Global variables
+	ask("Circles", "Quantity", "circleMax", 16);
+}
+
+//Creation of the score with script commands
+function makeWithScript() {
+	//Viewport setup
+	run("clear");
+	run("rotate 0 0 0");
+	run("center 3 0 0");
+	run("zoom 75");
+	
+	
+	//Generate circle curves, cursors and triggers
+	for(var circleIndex = 0 ; circleIndex < circleMax ; circleIndex++)
+		addCircle(circleIndex);
+}
+
+//Custom function
+function addCircle(circleIndex) {
+	run("add curve        " + (circleIndex));
+	run("setPos           current " + (circleIndex / 5) + " 0 0");
+	run("setGroup         current lines");
+	run("setPointsEllipse current " + (circleIndex / 5) + " " + (circleIndex / 5));
+	run("setColorHue      current " + range(circleIndex / circleMax, 20, 40) + " 255 255 255");
+
+	run("add cursor       " + 1000+circleIndex);
+	run("setCurve         current lastCurve");
+	run("setPattern       current 0 0 1");
+	run("setGroup         current values");
+	run("setWidth         current 0.1");
+	run("setMessage       current 20,"); // Remove default cursor messages
+
+	run("add trigger      " + (2000 + circleIndex));
+	run("setGroup         current triggers");
+	run("setPos           current " + (circleIndex / 5) + " " + (circleIndex / 5) + " 0 ");
+	run("setSize          current 0.5"); 
+	run("setColor         current 170 180 190 255");
+	//Syntax : serial:// note <PIN> <FREQUENCY> <DURATION>
+	run("setMessage       current 1, serial:// note 8 " + (circleIndex * 30 + 220) + " 30");
+}
+
+
+/*
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ *	Made with IanniX 0.9.0
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ */
+
+

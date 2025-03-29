@@ -1,0 +1,85 @@
+/*
+	IanniX score example: Random 3D lines (c) by IanniX Association
+	This file was written by Guillaume Jacquemin.
+	
+	This IanniX score example is licensed under a
+	Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+	
+	You should have received a copy of the license along with this
+	work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
+*/
+
+/*
+ *	IanniX Score File
+ */
+
+
+//Ask user for parameters before creation of the score
+function askUserForParameters() {
+	//Name of the script
+	title("Random lines");
+	//Global variables
+	ask("Lines",  "First order", "lineMax",  100);
+	ask("Lines",  "Second order", "lineSsMax", 20);
+	ask("Random", "Factor", "fuzzy", 1.3);
+}
+
+//Creation of the score with script commands
+function makeWithScript() {
+	//Viewport setup
+	run("clear");
+	run("rotate 0 -70 -10");
+	run("center 0 0 0");
+	run("zoom 150");
+	
+	
+	//Line curves
+	for(var lineIndex = 0 ; lineIndex < lineMax ; lineIndex++)
+		addLine();
+
+	//Add triggers
+	for(var i = 0 ; i < 20 ; i++) {
+		run("add trigger " + (2000+i));
+		run("setPos current " + random(-2, 2) + " " + random(-2, 2) + " " + random(-2, 2));
+	}
+}
+
+//Custom function
+var id = 0;
+function addLine() {
+	var colorHue = random(195, 205);
+	var start = {x: random(-5, 5), y: random(-5, 5), z: random(-5, 5)};
+	var end =   {x: random(-5, 5), y: random(-5, 5), z: random(-5, 5)};
+
+	for(var i = 0 ; i < lineSsMax ; i++) { 
+		run("add curve        " + (1000 + id));
+		run("setGroup         current lines");
+		run("setPointAt       current 0 " + (start.x * random(0, fuzzy)) + " " + (start.y * random(0, fuzzy)) + " " + (start.z * random(0, fuzzy)));
+		run("setPointAt       current 1 " + (  end.x * random(0, fuzzy)) + " " + (  end.y * random(0, fuzzy)) + " " + (  end.z * random(0, fuzzy)));
+		run("setColorHue      current " + colorHue + " 255 255 " + random(20, 35));
+		run("setSize          current 1.5");
+	
+		if(i == 0) {
+			run("add cursor       " + id);
+			run("setGroup         current values");
+			run("setCurve         current lastCurve");
+			run("setSpeed         current " + random(0.1, 2));
+			run("setBoundsSource  current -5 5 -5 5 -5 5");
+			run("setColorHue      current " + colorHue + " 255 255 " + random(130, 150));
+			run("setSize          current 0");
+			run("setPattern       current 0 0 1");
+			run("setMessage       current 1000,");
+		}
+		
+		id++
+	}
+}
+
+
+/*
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ *	Made with IanniX 0.9.18
+ *	//APP VERSION: NEVER EVER REMOVE THIS LINE
+ */
+
+
