@@ -71,11 +71,11 @@ QTabBar::tab {
 	color: 									rgb(220, 220, 220);
 }
 QTabBar::tab:selected {
-	background-color: 				rgb(242, 241, 237);
-	color: 									black;
+	background-color: 				rgb(125, 125, 125);
+	color: 								white;
 }
 QTabBar::tab:hover {
-	color: 									black;
+	color: 								white;
 }
 QTabBar::tab:!selected {
     margin-top: 						2px;
@@ -238,18 +238,18 @@ QDockWidget::title {
 }
 
 QToolBar {
-	background:				qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(247, 247, 247, 255), stop:1 rgba(222, 222, 222, 255));
-	border: 					1px solid rgba(202, 202, 202, 255);
+	background:				qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(72, 72, 72, 255), stop:1 rgba(48, 48, 48, 255));
+	border: 					1px solid rgba(30, 30, 30, 255);
 	spacing:					0px; 
 }
 QToolButton {
 	border: 					0px solid black;
-	color:						black;
+	color:						white;
 	border-radius: 		3px;
 	margin:					3px;
 }
 QToolButton:pressed, QToolButton:checked {
-    background-color:  rgba(0, 0, 0, 20);
+    background-color:  rgba(255, 255, 255, 45);
 }
 
 

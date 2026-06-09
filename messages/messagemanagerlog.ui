@@ -19,8 +19,8 @@
   <property name="styleSheet">
    <string notr="true">QWidget#logSend, QWidget#logReceive {
 	font: 						10px &quot;Lucida Console&quot;, &quot;Monaco&quot;, &quot;Monospace&quot;;
-	background-color: 	rgb(242, 241, 237);
-	color:						black;
+	background-color: 	rgb(35, 35, 35);
+	color:						rgb(220, 220, 220);
 }
 QPushButton  {
 	min-width:  		14px;

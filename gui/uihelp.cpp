@@ -44,8 +44,7 @@ UiHelp::UiHelp(QWidget *parent) :
         setWindowOpacity(0.9);
     }
 
-    // Set a darker text color for better contrast
-    setStyleSheet("QWidget { color: #333333; background-color: rgba(255, 255, 255, 0.9); }");
+    setStyleSheet("QWidget { color: rgb(215, 215, 215); background-color: rgba(35, 35, 35, 0.95); }");
 
     startTimer(150);
 }
@@ -123,14 +122,14 @@ void UiHelp::statusHelp() {
 
         html += "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">";
         html += "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">";
-        html += "body   { background-color: #EEEDE8; font-family: Museo Sans, Museo Sans 500, Arial; font-size: 11px; padding: 11px }";
+        html += "body   { background-color: #232323; color: #d7d7d7; font-family: Museo Sans, Museo Sans 500, Arial; font-size: 11px; padding: 11px }";
         html += ".code  { font-family:Monaco, Lucida Console, Monospace; font-size: 11px; }";
         html += ".bold  {  }";
         html += ".titre { font-size: 14px; }";
-        html += ".description { background-color: rgb(227,226,220); }";
-        html += ".syntax      { background-color: rgb(227,226,220); }";
-        html += ".example     { background-color: rgb(227,226,220); }";
-        html += ".snippet     { background-color: rgb(227,226,220); }";
+        html += ".description { background-color: rgb(50,50,50); }";
+        html += ".syntax      { background-color: rgb(50,50,50); }";
+        html += ".example     { background-color: rgb(50,50,50); }";
+        html += ".snippet     { background-color: rgb(50,50,50); }";
         html += ".sstitre     { }";
         html += ".action      { font-size: 9px;}";
         html += ".category    { font-size: 16px;  }";
@@ -240,7 +239,7 @@ void UiHelp::scriptHelp(const QString &looking, const QStringList &lookCategorie
 
         html += "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">";
         html += "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">";
-        html += "body   { background-color: #EEEDE8; font-family: Museo Sans, Museo Sans 500, Arial; font-size: 11px; }";
+        html += "body   { background-color: #232323; color: #d7d7d7; font-family: Museo Sans, Museo Sans 500, Arial; font-size: 11px; }";
 #ifdef Q_OS_WIN
         html += ".code  { font-family:Monaco, Lucida Console, Monospace; font-size: 11px; }";
 #else
@@ -248,10 +247,10 @@ void UiHelp::scriptHelp(const QString &looking, const QStringList &lookCategorie
 #endif
         html += ".bold  {  }";
         html += ".titre { font-size: 14px; }";
-        html += ".description { background-color: rgb(227,226,220); }";
-        html += ".syntax      { background-color: rgb(227,226,220); }";
-        html += ".example     { background-color: rgb(227,226,220); }";
-        html += ".snippet     { background-color: rgb(227,226,220); }";
+        html += ".description { background-color: rgb(50,50,50); }";
+        html += ".syntax      { background-color: rgb(50,50,50); }";
+        html += ".example     { background-color: rgb(50,50,50); }";
+        html += ".snippet     { background-color: rgb(50,50,50); }";
         html += ".sstitre     { }";
         html += ".action      { font-size: 10px;}";
         html += ".category    { font-size: 16px;  }";

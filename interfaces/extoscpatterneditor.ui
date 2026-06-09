@@ -27,7 +27,7 @@
 }
 QLabel {
 	font: 						9px &quot;Museo Sans&quot;, &quot;Museo Sans 500&quot;, &quot;Arial&quot;;
-	color: 						rgb(20, 20, 20);
+	color: 						rgb(220, 220, 220);
 }
 QLineEdit {
 	background: 			transparent;
@@ -35,7 +35,7 @@ QLineEdit {
 }
 
 QFrame#global {
-	background-color:	rgb(242, 241, 237);
+	background-color:	rgb(45, 45, 45);
 }
 QPlainTextEdit#patternEdit {
 	font: 11px &quot;Lucida Console&quot;, &quot;Monaco&quot;, &quot;Monospace&quot;;
@@ -44,10 +44,10 @@ QPlainTextEdit#patternEdit {
 
 QPlainTextEdit, QComboBox {
 	min-height: 				20px;
-	color: 						black;
+	color: 					white;
 	border: 					0px solid black;
 	border-radius: 		2px;
-	background-color: 	rgb(252, 251, 251);
+	background-color: 	rgb(60, 60, 60);
 }
 
 QComboBox {
