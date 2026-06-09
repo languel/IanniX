@@ -185,17 +185,17 @@ macx {
 macx {
     DEFINES           += SYPHON_INSTALLED
     OBJECTIVE_SOURCES += interfaces/interfacesyphon.mm
-    LIBS              += -framework Cocoa -framework Syphon
-    INCLUDEPATH += /Library/Frameworks/Syphon.framework/Headers
-    INCLUDEPATH += /Library/Frameworks/Syphon.framework/Headers/Syphon
+    SYPHON_DIR         = $$PWD/frameworks
+    LIBS              += -framework Cocoa -F$$SYPHON_DIR -framework Syphon
+    QMAKE_CXXFLAGS    += -F$$SYPHON_DIR
+    QMAKE_OBJECTIVE_CFLAGS += -F$$SYPHON_DIR
 
-    # Add Syphon framework to the app bundle - use full absolute paths with quotes for iCloud Drive compatibility
+    # Add Syphon framework to the app bundle
     DESTDIR = $${OUT_PWD}
     message("Output directory is: $$DESTDIR")
-    
-    # Use a more robust shell script approach with proper quoting for the Syphon framework copy
+
     QMAKE_POST_LINK += "mkdir -p \"$${DESTDIR}/IanniX.app/Contents/Frameworks/\" && "
-    QMAKE_POST_LINK += "cp -R /Library/Frameworks/Syphon.framework \"$${DESTDIR}/IanniX.app/Contents/Frameworks/\" && "
+    QMAKE_POST_LINK += "cp -R \"$$SYPHON_DIR/Syphon.framework\" \"$${DESTDIR}/IanniX.app/Contents/Frameworks/\" && "
     QMAKE_POST_LINK += "echo 'Syphon framework copied to app bundle'"
 
     # Ensure the app uses the bundled framework at runtime
