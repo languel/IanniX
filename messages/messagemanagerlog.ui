@@ -17,12 +17,7 @@
    <string>Full messages log|This tab allows you to see all the sent and received messages. Useful to see exactly what's happening and to understand IanniX inputs/outputs.\n Be careful, this log is *very* CPU intensive and the score accuracy may decrease if this tab is displayed during playback.</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget#logSend, QWidget#logReceive {
-	font: 						10px &quot;Lucida Console&quot;, &quot;Monaco&quot;, &quot;Monospace&quot;;
-	background-color: 	rgb(35, 35, 35);
-	color:						rgb(220, 220, 220);
-}
-QPushButton  {
+   <string notr="true">QPushButton  {
 	min-width:  		14px;
 	min-height: 		14px;
 	max-width:  	14px;

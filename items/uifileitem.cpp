@@ -98,7 +98,7 @@ void UiFileItem::populate(const QFileInfo &file) {
         if(parentItem)  setFlags(Qt::ItemIsEnabled | Qt::ItemIsEditable | Qt::ItemIsSelectable | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled);
         else            setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsDropEnabled);
         for(quint16 colIndex = 0 ; colIndex < 3 ; colIndex++)
-            setForeground(colIndex, Qt::lightGray);
+            setForeground(colIndex, Qt::gray);
         setIcon(0, iconFolder);
     }
     else if(filename.file.isFile()) {

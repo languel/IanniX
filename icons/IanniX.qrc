@@ -12,6 +12,7 @@
         <file>res_icon_trigger_select.png</file>
         <file>res_icon_play.png</file>
         <file>res_logo.png</file>
+        <file>res_logo_dark.png</file>
         <file>res_splash.png</file>
     </qresource>
     <qresource prefix="/icons">
@@ -66,6 +67,8 @@
         <file>res_item_file.png</file>
         <file>res_tree_close.png</file>
         <file>res_tree_open.png</file>
+        <file>res_tree_close_dark.png</file>
+        <file>res_tree_open_dark.png</file>
         <file>res_item_folder.png</file>
         <file>res_item_reveal.png</file>
         <file>res_item_file_opened.png</file>

@@ -105,8 +105,8 @@ unix:!mac {
 
 HEADERS  += iannix.h   iannixapp.h   iannix_spec.h  iannix_cmd.h
 SOURCES  += iannix.cpp iannixapp.cpp iannix_spec.cpp
-HEADERS  += misc/help.h   misc/application.h   misc/options.h   misc/applicationexecute.h
-SOURCES  += misc/help.cpp misc/application.cpp misc/options.cpp misc/applicationexecute.cpp
+HEADERS  += misc/help.h   misc/application.h   misc/options.h   misc/applicationexecute.h   misc/uitheme.h
+SOURCES  += misc/help.cpp misc/application.cpp misc/options.cpp misc/applicationexecute.cpp misc/uitheme.cpp
 
 HEADERS  += messages/messagemanagerlogmini.h   messages/messagemanagerlog.h   messages/messagemanager.h   messages/message.h   messages/messagemanagerloginterface.h
 SOURCES  += messages/messagemanagerlogmini.cpp messages/messagemanagerlog.cpp messages/messagemanager.cpp messages/message.cpp
