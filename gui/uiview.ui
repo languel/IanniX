@@ -811,6 +811,9 @@
    <property name="statusTip">
     <string>Cursors|In IanniX vocabulary, a cursor is a playhead. While running on a curve, it can fire triggers, sends its position or reads curve values. If the cursor is not linked to a curve, it will not move automatically, but you can control it from another software or hardware (sensors…).\n\nDouble click on a cursor to change the sent messages.</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
    </property>
@@ -1123,13 +1126,13 @@
      <normaloff>:/actions/res_icon_light.png</normaloff>:/actions/res_icon_light.png</iconset>
    </property>
    <property name="text">
-    <string>Lighter color theme</string>
+    <string>Light theme</string>
    </property>
    <property name="iconText">
-    <string>Lighter color theme</string>
+    <string>Light theme</string>
    </property>
    <property name="toolTip">
-    <string>Changes the color theme</string>
+    <string>Switches the whole interface between the light and dark theme</string>
    </property>
    <property name="statusTip">
     <string>Color themes|IanniX comes with two color themes: one is bright (for editing, with colors inspired by paper and pencil), the other is dark (for performance, not dazzling on stage, in lighting desk or sound controls)</string>

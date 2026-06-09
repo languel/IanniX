@@ -42,7 +42,6 @@ UiHelp::UiHelp(QWidget *parent) :
         setWindowFlags(Qt::Dialog);
         setWindowFlag(Qt::WindowMaximizeButtonHint, false);
         setWindowFlag(Qt::WindowMinimizeButtonHint, false);
-        setWindowOpacity(0.9);
     }
 
     startTimer(150);

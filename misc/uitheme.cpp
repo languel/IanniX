@@ -94,6 +94,8 @@ QString UiTheme::stylesheet(bool light) {
         c["TREE_BRANCH_CLOSED"]  = "url(:/items/res_tree_close_dark.png)";
         c["TREE_BRANCH_OPEN"]    = "url(:/items/res_tree_open_dark.png)";
         c["LOGO"]                = "url(:/general/res_logo_dark.png)";
+        c["EDITOR_BG"]           = "#FDFCF8";
+        c["EDITOR_TEXT"]         = "#1A1A1A";
     } else {
         c["TEXT_STRONG"]         = "white";
         c["TEXT"]                = "rgb(210, 210, 210)";
@@ -131,6 +133,8 @@ QString UiTheme::stylesheet(bool light) {
         c["TREE_BRANCH_CLOSED"]  = "url(:/items/res_tree_close.png)";
         c["TREE_BRANCH_OPEN"]    = "url(:/items/res_tree_open.png)";
         c["LOGO"]                = "url(:/general/res_logo.png)";
+        c["EDITOR_BG"]           = "#0C152B";
+        c["EDITOR_TEXT"]         = "#FFFFFF";
     }
     c["ACCENT"] = "rgb(0, 187, 255)";
 
@@ -425,6 +429,15 @@ QDialogButtonBox QPushButton {
 	padding-right: 10px;
 	min-height:    25px;
 	margin:        5px;
+}
+
+/* SCRIPT EDITOR — colors are driven by JSEdit's palette and highlighter
+   (UiEditor::applyEditorColors); keep the generic QPlainTextEdit rule from
+   overriding them. */
+JSEdit {
+	background-color: %EDITOR_BG%;
+	color:            %EDITOR_TEXT%;
+	border:           0px solid black;
 }
 
 /* MESSAGE LOG */

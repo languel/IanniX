@@ -58,6 +58,7 @@ public slots:
     void refresh()  { emit(askRefresh()); }
     void cursorChanged();
     void scriptError(const QStringList &errors, qint16 line);
+    void applyEditorColors();
 
 public:
     QAction *toolbarButton;
