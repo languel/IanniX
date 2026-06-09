@@ -86,21 +86,21 @@ void UiEditor::applyEditorColors() {
         ui->jsEditor->setColor(JSEdit::BracketError,  QColor("#FFB4B4"));
         ui->jsEditor->setColor(JSEdit::FoldIndicator, QColor("#AAAAAA"));
     } else {
-        ui->jsEditor->setColor(JSEdit::Background,    QColor("#0C152B"));
-        ui->jsEditor->setColor(JSEdit::Normal,        QColor("#FFFFFF"));
-        ui->jsEditor->setColor(JSEdit::Comment,       QColor("#7A88A8"));
-        ui->jsEditor->setColor(JSEdit::Number,        QColor("#C8DD8B"));
-        ui->jsEditor->setColor(JSEdit::String,        QColor("#8FD49B"));
-        ui->jsEditor->setColor(JSEdit::Operator,      QColor("#E89A62"));
-        ui->jsEditor->setColor(JSEdit::Identifier,    QColor("#FFFFFF"));
-        ui->jsEditor->setColor(JSEdit::Keyword,       QColor("#EFD877"));
-        ui->jsEditor->setColor(JSEdit::BuiltIn,       QColor("#9CB6D4"));
-        ui->jsEditor->setColor(JSEdit::Sidebar,       QColor("#16203A"));
-        ui->jsEditor->setColor(JSEdit::LineNumber,    QColor("#7888B0"));
-        ui->jsEditor->setColor(JSEdit::Cursor,        QColor("#1E346B"));
-        ui->jsEditor->setColor(JSEdit::Marker,        QColor("#C8DD8B"));
-        ui->jsEditor->setColor(JSEdit::BracketMatch,  QColor("#1AB0A6"));
-        ui->jsEditor->setColor(JSEdit::BracketError,  QColor("#A82224"));
+        ui->jsEditor->setColor(JSEdit::Background,    QColor("#262626"));
+        ui->jsEditor->setColor(JSEdit::Normal,        QColor("#DCDCDC"));
+        ui->jsEditor->setColor(JSEdit::Comment,       QColor("#828282"));
+        ui->jsEditor->setColor(JSEdit::Number,        QColor("#B5C78A"));
+        ui->jsEditor->setColor(JSEdit::String,        QColor("#9DBF9E"));
+        ui->jsEditor->setColor(JSEdit::Operator,      QColor("#C49A78"));
+        ui->jsEditor->setColor(JSEdit::Identifier,    QColor("#DCDCDC"));
+        ui->jsEditor->setColor(JSEdit::Keyword,       QColor("#D4C58A"));
+        ui->jsEditor->setColor(JSEdit::BuiltIn,       QColor("#94ABBE"));
+        ui->jsEditor->setColor(JSEdit::Sidebar,       QColor("#1F1F1F"));
+        ui->jsEditor->setColor(JSEdit::LineNumber,    QColor("#7A7A7A"));
+        ui->jsEditor->setColor(JSEdit::Cursor,        QColor("#363636"));
+        ui->jsEditor->setColor(JSEdit::Marker,        QColor("#D4C58A"));
+        ui->jsEditor->setColor(JSEdit::BracketMatch,  QColor("#3F5F5B"));
+        ui->jsEditor->setColor(JSEdit::BracketError,  QColor("#6E3030"));
         ui->jsEditor->setColor(JSEdit::FoldIndicator, QColor("#555555"));
     }
 }

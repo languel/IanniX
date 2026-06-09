@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QStyleFactory>
 #include <QStyle>
+#include <QPalette>
 #include <QWidget>
 
 bool UiTheme::lightTheme = false;
@@ -42,6 +43,39 @@ void UiTheme::apply(bool light) {
     }
 
     lightTheme = light;
+
+    // Fusion falls back to the system palette (dark on a dark-mode mac) for
+    // everything the stylesheet does not cover — window frames between dock
+    // panels, menus, combo popups. Pin an explicit palette per theme.
+    QPalette pal;
+    if(light) {
+        pal.setColor(QPalette::Window,          QColor(225, 224, 220));
+        pal.setColor(QPalette::WindowText,      QColor( 25,  25,  25));
+        pal.setColor(QPalette::Base,            QColor(255, 255, 255));
+        pal.setColor(QPalette::AlternateBase,   QColor(240, 239, 234));
+        pal.setColor(QPalette::Text,            QColor( 25,  25,  25));
+        pal.setColor(QPalette::Button,          QColor(233, 232, 228));
+        pal.setColor(QPalette::ButtonText,      QColor( 25,  25,  25));
+        pal.setColor(QPalette::ToolTipBase,     QColor(250, 249, 245));
+        pal.setColor(QPalette::ToolTipText,     QColor( 25,  25,  25));
+        pal.setColor(QPalette::PlaceholderText, QColor(120, 120, 120));
+        pal.setColor(QPalette::HighlightedText, Qt::black);
+    } else {
+        pal.setColor(QPalette::Window,          QColor( 35,  35,  35));
+        pal.setColor(QPalette::WindowText,      QColor(210, 210, 210));
+        pal.setColor(QPalette::Base,            QColor( 50,  50,  50));
+        pal.setColor(QPalette::AlternateBase,   QColor( 55,  55,  55));
+        pal.setColor(QPalette::Text,            QColor(210, 210, 210));
+        pal.setColor(QPalette::Button,          QColor( 58,  58,  58));
+        pal.setColor(QPalette::ButtonText,      QColor(210, 210, 210));
+        pal.setColor(QPalette::ToolTipBase,     QColor( 45,  45,  45));
+        pal.setColor(QPalette::ToolTipText,     QColor(210, 210, 210));
+        pal.setColor(QPalette::PlaceholderText, QColor(140, 140, 140));
+        pal.setColor(QPalette::HighlightedText, Qt::white);
+    }
+    pal.setColor(QPalette::Highlight, QColor(0, 187, 255));
+    qApp->setPalette(pal);
+
     // Clear first: replacing one application stylesheet with another leaves
     // stale cached backgrounds on toolbars, tab bars and item view headers.
     // Dropping to an empty stylesheet forces a full teardown in between.
@@ -134,9 +168,9 @@ QString UiTheme::stylesheet(bool light) {
         c["TREE_BRANCH_CLOSED"]  = "url(:/items/res_tree_close.png)";
         c["TREE_BRANCH_OPEN"]    = "url(:/items/res_tree_open.png)";
         c["LOGO"]                = "url(:/general/res_logo.png)";
-        c["EDITOR_BG"]           = "#0C152B";
+        c["EDITOR_BG"]           = "#262626";
         c["EDITOR_TEXT"]         = "#FFFFFF";
-        c["EDITOR_SCROLL"]       = "#2E3A5C";
+        c["EDITOR_SCROLL"]       = "#404040";
     }
     c["ACCENT"] = "rgb(0, 187, 255)";
 
@@ -429,6 +463,9 @@ QWidget#equationEdit {
 /* MAIN */
 QWidget#centralwidget {
 	background-color: %WINDOW_BG%;
+}
+QMainWindow {
+	background-color: %SURFACE%;
 }
 
 /* DIALOG */

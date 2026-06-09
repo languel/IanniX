@@ -294,7 +294,26 @@
             <number>10</number>
            </property>
            <item>
+            <spacer name="speedSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>10</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <widget class="QSlider" name="speedSlider">
+             <property name="maximumSize">
+              <size>
+               <width>140</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="toolTip">
               <string>Changes the global playback speed (1.00 = real time clock)</string>
              </property>
