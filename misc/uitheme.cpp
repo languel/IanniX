@@ -96,6 +96,7 @@ QString UiTheme::stylesheet(bool light) {
         c["LOGO"]                = "url(:/general/res_logo_dark.png)";
         c["EDITOR_BG"]           = "#FDFCF8";
         c["EDITOR_TEXT"]         = "#1A1A1A";
+        c["EDITOR_SCROLL"]       = "#C9C6BD";
     } else {
         c["TEXT_STRONG"]         = "white";
         c["TEXT"]                = "rgb(210, 210, 210)";
@@ -135,6 +136,7 @@ QString UiTheme::stylesheet(bool light) {
         c["LOGO"]                = "url(:/general/res_logo.png)";
         c["EDITOR_BG"]           = "#0C152B";
         c["EDITOR_TEXT"]         = "#FFFFFF";
+        c["EDITOR_SCROLL"]       = "#2E3A5C";
     }
     c["ACCENT"] = "rgb(0, 187, 255)";
 
@@ -348,9 +350,14 @@ QToolButton {
 	border-radius: 3px;
 	margin:        3px;
 }
-QToolBar QToolButton {
+UiView QToolBar QToolButton {
 	width:  22px;
 	height: 22px;
+}
+QMainWindow::separator {
+	background: %SURFACE%;
+	width:      3px;
+	height:     3px;
 }
 UiInspector QTabWidget, UiInspector QTabBar, UiInspector QTreeView, UiInspector QToolButton {
 	icon-size: 14px;
@@ -404,7 +411,8 @@ QPushButton#ffButton, QPushButton#playButton {
 	min-height:       40px;
 	border-radius:    20px;
 	padding:          0px;
-	background-color: rgb(70, 70, 70); /* glyph icons are white; keep dark in both themes */
+	border:           1px solid %CONTROL_BORDER%;
+	background-color: %CONTROL_BG%;
 }
 
 /* INSPECTOR */
@@ -438,6 +446,12 @@ JSEdit {
 	background-color: %EDITOR_BG%;
 	color:            %EDITOR_TEXT%;
 	border:           0px solid black;
+}
+JSEdit QScrollBar:vertical, JSEdit QScrollBar:horizontal {
+	background: %EDITOR_BG%;
+}
+JSEdit QScrollBar::handle:vertical, JSEdit QScrollBar::handle:horizontal {
+	background: %EDITOR_SCROLL%;
 }
 
 /* MESSAGE LOG */

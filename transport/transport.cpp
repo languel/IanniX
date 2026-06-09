@@ -23,6 +23,7 @@
 
 #include "transport.h"
 #include "ui_transport.h"
+#include "misc/uitheme.h"
 
 qint64    Transport::currentMSecsSinceEpoch = 0;
 QString   Transport::timeLocalStr         = "000:00.000";
@@ -59,6 +60,21 @@ Transport::Transport(QWidget *parent) :
     bigTimer = new UiTimer();
     editor   = new UiEditor();
     about    = new UiAbout();
+
+    applyTransportIcons();
+    // Queued so UiTheme::apply() has run before we read the settled theme.
+    connect(&Application::colorTheme, &UiBool::triggered, this, [this](bool) { applyTransportIcons(); }, Qt::QueuedConnection);
+}
+
+void Transport::applyTransportIcons() {
+    // The play/pause/ff glyphs are white; swap to inverted versions on the
+    // light theme where the buttons have a light background.
+    const QString suffix = UiTheme::isLight() ? "_dark" : "";
+    QIcon playIcon;
+    playIcon.addFile(QString(":/general/res_icon_play%1.png").arg(suffix),  QSize(), QIcon::Normal, QIcon::Off);
+    playIcon.addFile(QString(":/general/res_icon_pause%1.png").arg(suffix), QSize(), QIcon::Normal, QIcon::On);
+    ui->playButton->setIcon(playIcon);
+    ui->ffButton->setIcon(QIcon(QString(":/general/res_icon_ff%1.png").arg(suffix)));
 }
 
 Transport::~Transport() {

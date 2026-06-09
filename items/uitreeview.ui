@@ -24,6 +24,10 @@
 	border-radius: 10px;
 	padding:			0px;
 }
+QPushButton {
+	margin: 			0px;
+	font: 				8px &quot;Museo Sans&quot;, &quot;Museo Sans 500&quot;, &quot;Arial&quot;;
+}
 QPushButton#actionDuplicate, QPushButton#actionAddRoot, QPushButton#actionSave {
 	min-width:  		70px;
 	max-width:  	70px;

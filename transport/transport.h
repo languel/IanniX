@@ -104,6 +104,7 @@ public:
 
 public slots:
     void action();
+    void applyTransportIcons();
 
 signals:
     void forceOpenGLtimer(qreal);

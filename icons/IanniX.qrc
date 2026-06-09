@@ -2,15 +2,18 @@
     <qresource prefix="/general">
         <file>res_about.png</file>
         <file>res_icon_ff.png</file>
+        <file>res_icon_ff_dark.png</file>
         <file>res_icon_inspector_info.png</file>
         <file>res_icon_inspector_osc.png</file>
         <file>res_icon_inspector_project.png</file>
         <file>res_icon_inspector_view.png</file>
         <file>res_icon_pause.png</file>
+        <file>res_icon_pause_dark.png</file>
         <file>res_icon_cursor_select.png</file>
         <file>res_icon_curve_select.png</file>
         <file>res_icon_trigger_select.png</file>
         <file>res_icon_play.png</file>
+        <file>res_icon_play_dark.png</file>
         <file>res_logo.png</file>
         <file>res_logo_dark.png</file>
         <file>res_splash.png</file>

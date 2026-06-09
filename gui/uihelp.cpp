@@ -129,7 +129,7 @@ void UiHelp::statusHelp() {
         html += ".action      { font-size: 9px;}";
         html += ".category    { font-size: 16px;  }";
         html += ".hint        { color: rgb(115,159,89); }";
-        html += "a	          { color: rgb(244,98,0); text-decoration: none; }";
+        html += QString("a { color: %1; text-decoration: none; }").arg(UiTheme::isLight()?"#A85B1E":"#D89A5F");
         html += "a:hover      { text-decoration: underline; }";
         html += "</style></head><body><p>";
 
@@ -247,7 +247,7 @@ void UiHelp::scriptHelp(const QString &looking, const QStringList &lookCategorie
         html += ".action      { font-size: 10px;}";
         html += ".category    { font-size: 16px;  }";
         html += ".hint        { color: rgb(115,159,89); }";
-        html += "a	          { color: rgb(244,98,0); text-decoration: none; }";
+        html += QString("a { color: %1; text-decoration: none; }").arg(UiTheme::isLight()?"#A85B1E":"#D89A5F");
         html += "a:hover      { text-decoration: underline; }";
         html += "</style></head><body><p>";
 
