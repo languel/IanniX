@@ -180,6 +180,7 @@
     <addaction name="actionToggle_Transport"/>
     <addaction name="actionShowEditor"/>
     <addaction name="actionShowTimer"/>
+    <addaction name="actionShowHelp"/>
     <addaction name="separator"/>
     <addaction name="actionGrid"/>
     <addaction name="actionSnapXGrid"/>
