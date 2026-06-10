@@ -125,8 +125,6 @@ QString UiTheme::stylesheet(bool light) {
         c["TOOLBTN_TEXT"]        = "black";
         c["TOOLBTN_PRESS"]       = "rgba(0, 0, 0, 20)";
         c["STATUS_BG"]           = "rgb(232, 231, 226)";
-        c["ACCENT_HOVER_BORDER"] = "rgb(0, 150, 210)";
-        c["ACCENT_HOVER_BG"]     = "rgb(173, 221, 242)";
         c["LOG_BG"]              = "rgb(242, 241, 237)";
         c["LOG_TEXT"]            = "black";
         c["TREE_BRANCH_CLOSED"]  = "url(:/items/res_tree_close_dark.png)";
@@ -168,8 +166,6 @@ QString UiTheme::stylesheet(bool light) {
         c["TOOLBTN_TEXT"]        = "white";
         c["TOOLBTN_PRESS"]       = "rgba(255, 255, 255, 45)";
         c["STATUS_BG"]           = "rgb(30, 30, 30)";
-        c["ACCENT_HOVER_BORDER"] = "rgb(28, 124, 195)";
-        c["ACCENT_HOVER_BG"]     = "rgb(21, 91, 143)";
         c["LOG_BG"]              = "rgb(35, 35, 35)";
         c["LOG_TEXT"]            = "rgb(220, 220, 220)";
         c["TREE_BRANCH_CLOSED"]  = "url(:/items/res_tree_close.png)";
@@ -186,6 +182,9 @@ QString UiTheme::stylesheet(bool light) {
     if((Render::colors) && (Render::colors->contains("gui_accent")))
         accent = Render::colors->value("gui_accent");
     c["ACCENT"] = QString("rgba(%1, %2, %3, %4)").arg(accent.red()).arg(accent.green()).arg(accent.blue()).arg(accent.alpha());
+    // Hover states derive from the accent so they follow customization.
+    c["ACCENT_HOVER_BORDER"] = QString("rgba(%1, %2, %3, 255)").arg(accent.red()).arg(accent.green()).arg(accent.blue());
+    c["ACCENT_HOVER_BG"]     = QString("rgba(%1, %2, %3, 90)").arg(accent.red()).arg(accent.green()).arg(accent.blue());
 
     QString qss = QString::fromUtf8(R"QSS(
 QTabWidget, QLabel, QCheckBox, QLineEdit, QPlainTextEdit, QPushButton, QSpinBox, QDoubleSpinBox, QTreeView, QHeaderView, QTabBar, QComboBox, QFrame#globalFrame, QTabBar::tab, QDockWidget, QStatusBar, QRadioButton, QToolButton {
