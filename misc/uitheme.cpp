@@ -131,6 +131,7 @@ QString UiTheme::stylesheet(bool light) {
         c["EDITOR_BG"]           = "#FDFCF8";
         c["EDITOR_TEXT"]         = "#1A1A1A";
         c["EDITOR_SCROLL"]       = "#C9C6BD";
+        c["HELP_BG"]             = "#EEEDE8";
     } else {
         c["TEXT_STRONG"]         = "white";
         c["TEXT"]                = "rgb(210, 210, 210)";
@@ -171,6 +172,7 @@ QString UiTheme::stylesheet(bool light) {
         c["EDITOR_BG"]           = "#262626";
         c["EDITOR_TEXT"]         = "#FFFFFF";
         c["EDITOR_SCROLL"]       = "#404040";
+        c["HELP_BG"]             = "#232323";
     }
     c["ACCENT"] = "rgb(0, 187, 255)";
 
@@ -489,6 +491,13 @@ JSEdit QScrollBar:vertical, JSEdit QScrollBar:horizontal {
 }
 JSEdit QScrollBar::handle:vertical, JSEdit QScrollBar::handle:horizontal {
 	background: %EDITOR_SCROLL%;
+}
+
+/* HELP PANES — match the generated HTML body background so unrendered
+   margins do not flash the old theme. */
+UiHelp QTextBrowser {
+	background-color: %HELP_BG%;
+	border:           0px solid black;
 }
 
 /* MESSAGE LOG */

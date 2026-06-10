@@ -103,6 +103,8 @@ void UiEditor::applyEditorColors() {
         ui->jsEditor->setColor(JSEdit::BracketError,  QColor("#6E3030"));
         ui->jsEditor->setColor(JSEdit::FoldIndicator, QColor("#555555"));
     }
+    // Regenerate the commands/help pane HTML so its colors follow the theme.
+    cursorChanged();
 }
 
 void UiEditor::setContent(const QString &content, bool raiseWindow) {
@@ -165,6 +167,9 @@ void UiEditor::showEvent(QShowEvent *e) {
     if(toolbarButton)
         toolbarButton->setChecked(true);
     QMainWindow::showEvent(e);
+    // The help pane skips rendering while hidden — refresh it now in case the
+    // theme changed since the window was last shown.
+    cursorChanged();
 }
 void UiEditor::closeEvent(QCloseEvent *e) {
     if(toolbarButton)

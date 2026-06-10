@@ -30,6 +30,7 @@
 #include "jsedit.h"
 
 #include <QtGui>
+#include <QScrollBar>
 
 class JSBlockData: public QTextBlockUserData
 {
@@ -989,8 +990,13 @@ void JSEdit::updateSidebar()
     }
     setViewportMargins(sw, 0, 0, 0);
 
-    d->sidebar->setGeometry(0, 0, sw, height());
-    QRectF sidebarRect(0, 0, sw, height());
+    // Stop the gutter above the horizontal scrollbar so line numbers do not
+    // show through / behind it.
+    int sh = height();
+    if (horizontalScrollBar()->isVisible())
+        sh -= horizontalScrollBar()->height();
+    d->sidebar->setGeometry(0, 0, sw, sh);
+    QRectF sidebarRect(0, 0, sw, sh);
 
     QTextBlock block = firstVisibleBlock();
     int index = 0;
