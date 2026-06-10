@@ -61,6 +61,15 @@ private:
     QList<UiSyncItem*> selectionClipboard;
     QList<UiSyncItem*> getSelection(bool shouldHaveParent = true);
     UiSyncItem *currentDocument;
+    // Clears currentDocument if the underlying item is deleted (e.g. by a
+    // file-watcher tree rebuild) so we never call into freed memory.
+    void trackCurrentDocument(UiSyncItem *item) {
+        if(QObject *object = dynamic_cast<QObject*>(item))
+            connect(object, &QObject::destroyed, this, [this, item]() {
+                if(currentDocument == item)
+                    currentDocument = 0;
+            });
+    }
 public:
     bool importAsFiles;
     UiSyncItem* getCurrentDocument() const { return currentDocument; }

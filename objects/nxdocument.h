@@ -25,6 +25,7 @@
 #define NXDOCUMENT_H
 
 #include <QObject>
+#include <QPointer>
 #include <QScriptEngine>
 #include <QFile>
 #include <QFileInfo>
@@ -42,7 +43,7 @@ class NxDocument : public QObject, public QTreeWidgetItem, public MessageDispatc
 
 public:
     ExecuteSource source;
-    UiFileItem *fileItem;
+    QPointer<UiFileItem> fileItem;  // tree items can be deleted by file-watcher rebuilds
     QString initialContent;
     bool skipClose;
 public slots:

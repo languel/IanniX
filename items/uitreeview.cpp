@@ -94,6 +94,7 @@ void UiTreeView::askNew() {
                 UiSyncItem *newItem = item->askForNewChild(item, false);
                 if((newItem) && (newItem->askForOpen(newItem))) {
                     currentDocument = newItem;
+                    trackCurrentDocument(newItem);
                     emit(currentDocumentChanged(currentDocument));
                 }
                 return;
@@ -121,6 +122,7 @@ void UiTreeView::askOpen() {
                     currentDocument->askForClose(currentDocument);
                 if(syncItem->askForOpen(syncItem)) {
                     currentDocument = syncItem;
+                    trackCurrentDocument(syncItem);
                     emit(currentDocumentChanged(currentDocument));
                     break;
                 }
