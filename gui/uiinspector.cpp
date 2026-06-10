@@ -1012,6 +1012,10 @@ void UiInspector::showRessourcesTab(const QString &) {
     ui->ssTabInfo->setCurrentIndex(4);
 }
 void UiInspector::showConfigTab() {
+    // Reveal the Inspector dock if it was closed, then jump to Config.
+    if(parentWidget())
+        parentWidget()->show();
+    raise();
     ui->tab->setCurrentIndex(3);
 }
 

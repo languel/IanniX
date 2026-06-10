@@ -1612,6 +1612,12 @@
    <property name="toolTip">
     <string>Opens the Config tab in Inspector</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+,</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
   </action>
   <action name="actionSave_score_as">
    <property name="text">
