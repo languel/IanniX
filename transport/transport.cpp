@@ -181,11 +181,6 @@ void Transport::action() {
         if(ui->playButton->isChecked()) Application::current->execute(QString("%1").arg(COMMAND_PLAY), ExecuteSourceGui);
         else                            Application::current->execute(QString("%1").arg(COMMAND_STOP), ExecuteSourceGui);
     }
-    else if(sender() == ui->speedSlider) {
-        ui->speedSpinReset->setEnabled((ui->speedSpin->value() != 1));
-        if(!speedLock)
-            Application::current->execute(QString("%1 %2").arg(COMMAND_SPEED).arg((qreal)ui->speedSlider->value()/100.0F), ExecuteSourceGui);
-    }
     else if(sender() == ui->speedSpin) {
         ui->speedSpinReset->setEnabled((ui->speedSpin->value() != 1));
         if(!speedLock)
@@ -229,7 +224,6 @@ void Transport::setSpeed(qreal _scoreSpeed) {
     speedLock = true;
     scoreSpeed = _scoreSpeed;
 
-    ui->speedSlider->setValue(scoreSpeed*100.);
     ui->speedSpin->setValue  (scoreSpeed);
 
     speedLock = false;

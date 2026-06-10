@@ -205,7 +205,7 @@ QSpinBox, QDoubleSpinBox, QLineEdit, QPlainTextEdit, QCheckBox {
 	margin-bottom: 4px;
 }
 
-QFrame#globalFrame, QFrame#transportFrame, QFrame#timeFrame, QFrame#optionFrame, QFrame#speedFrame, QFrame#logoFrame, QFrame#perfFrame, QDialog {
+QFrame#globalFrame, QFrame#transportFrame, QFrame#timeFrame, QFrame#optionFrame, QFrame#speedFrame, QFrame#speedBoxFrame, QFrame#logoFrame, QFrame#perfFrame, QDialog {
 	background-color: %SURFACE%;
 }
 QLabel, QCheckBox, QRadioButton {
@@ -425,12 +425,9 @@ QStatusBar {
 }
 
 /* TRANSPORT */
-QFrame#transportFrame, QFrame#timeFrame, QFrame#optionFrame, QFrame#speedFrame, QFrame#logoFrame, QFrame#perfFrame {
+QFrame#transportFrame, QFrame#timeFrame, QFrame#optionFrame, QFrame#speedFrame, QFrame#speedBoxFrame, QFrame#logoFrame, QFrame#perfFrame {
 	border:      0px solid black;
 	border-left: 1px solid %BORDER%;
-}
-QWidget#speedSlider {
-	margin-top: 7px;
 }
 QWidget#timeEdit, QWidget#perfCpuEdit, QWidget#perfOpenGLEdit, QWidget#perfSchedulerEdit {
 	background-color: transparent;
