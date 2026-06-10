@@ -28,6 +28,11 @@ That's it — no extra installs needed. To send/receive OSC, MIDI, or Syphon vid
 - Hardened-runtime codesigning + notarization script: `Tools/build-macos.sh`
 - Restored `icons/IanniX.qrc` (accidentally removed by an over-broad `.gitignore`)
 
+### Content & files
+- Bundled Examples and Patches are copied into `~/Documents/IanniX` at launch (missing files only — edits are preserved; delete a file to restore the original). Saving into the signed app bundle would break its code signature
+- File browser shows one coherent tree (your Documents/IanniX folder); right-click any file or folder to reveal it in Finder
+- The accent color is configurable: INFOS → RESOURCES → COLORS → `gui_accent`
+
 ### UI / theming
 - Coherent dark and light themes for the whole interface (toolbar, inspector, transport, helper, script editor), switched live with the sun toolbar button — the toggle previously only changed the score canvas colors
 - Theme engine in `misc/uitheme.cpp`: one parameterized stylesheet + per-theme palette applied app-wide (Fusion base style). Do not add color-bearing stylesheets to `.ui` files — widget-level stylesheets block app-stylesheet updates on theme switches

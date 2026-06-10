@@ -69,7 +69,7 @@
         </property>
         <widget class="QWidget" name="tabProject">
          <property name="statusTip">
-          <string>Scores file|Scores are stored in files containing three parts:\n- objects edited through graphical user interface\n- script code\n- received messages from external software</string>
+          <string>Scores file|Scores are stored in files containing three parts:\n- objects edited through graphical user interface\n- script code\n- received messages from external software\n\nEverything lives in your Documents/IanniX folder. The bundled Examples and Patches are copied there at launch: edit them freely — to restore an original, delete the file and relaunch IanniX.</string>
          </property>
          <attribute name="icon">
           <iconset resource="../icons/IanniX.qrc">

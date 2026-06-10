@@ -22,6 +22,7 @@
 */
 
 #include "uicoloritem.h"
+#include "misc/uitheme.h"
 
 UiColorItems::UiColorItems(UiSyncItem *_parent) :
     UiSyncItem(_parent) {
@@ -66,6 +67,9 @@ bool UiColorItems::update() {
     }
     dataChanged();
     treeWidget()->expandItem(this);
+    // Colors may have been (re)loaded from settings or scripts — refresh the
+    // chrome so a customized gui_accent takes effect.
+    UiTheme::apply(UiTheme::isLight());
     return true;
 }
 
@@ -142,6 +146,8 @@ void UiColorItem::setData(int column, int role, const QVariant &value) {
         if(column == 0) color = baseList->setValue(name, value).value<QColor>();
         if(column == 1) name  = baseList->renameKey(name, value);
         dataChanged();
+        if(name == "gui_accent")
+            UiTheme::apply(UiTheme::isLight());
         return;
     }
     return QTreeWidgetItem::setData(column, role, value);

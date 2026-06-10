@@ -149,6 +149,8 @@
     <addaction name="actionReloadScript"/>
     <addaction name="actionClose_score"/>
     <addaction name="separator"/>
+    <addaction name="actionPatchesFolder"/>
+    <addaction name="separator"/>
     <addaction name="actionImport_Text"/>
     <addaction name="actionImport_SVG"/>
     <addaction name="actionImport_Background"/>
@@ -361,7 +363,6 @@
    <addaction name="separator"/>
    <addaction name="actionLight"/>
    <addaction name="separator"/>
-   <addaction name="actionPatchesFolder"/>
   </widget>
   <action name="actionUndo">
    <property name="text">
@@ -1029,16 +1030,16 @@
      <normaloff>:/actions/res_icon_patches_folder.png</normaloff>:/actions/res_icon_patches_folder.png</iconset>
    </property>
    <property name="text">
-    <string>Third party software examples</string>
+    <string>Open patches folder (third-party examples)</string>
    </property>
    <property name="iconText">
-    <string>Third party software examples</string>
+    <string>Open patches folder (third-party examples)</string>
    </property>
    <property name="toolTip">
-    <string>Opens a folder where you can find third party software examples</string>
+    <string>Opens the Patches folder with examples for third party software</string>
    </property>
    <property name="statusTip">
-    <string>Third party software examples|IanniX only sequences events and values to other software or hardware. Click on this button to open examples using third party software that are compatible with IanniX.\nBe aware that these represent just samples, many other software tools are compatible with IanniX! Have a look at the configuration tab in inspector panel to see all the available interfaces.</string>
+    <string>Third party software examples|IanniX only sequences events and values to other software or hardware. This opens the Patches folder (in Documents/IanniX) with examples for compatible third party software.\nThese are just samples — many other tools speak OSC/MIDI! Have a look at the configuration tab in the Inspector panel to see all available interfaces.</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
