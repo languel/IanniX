@@ -26,6 +26,7 @@
 
 #include "misc/applicationexecute.h"
 #include "uitreeview.h"
+#include <QHeaderView>
 #include "misc/options.h"
 #include "iannix_cmd.h"
 
@@ -36,6 +37,14 @@ public:
 public:
     QString name;
     QColor color;
+
+    // Keep the interface accent color at the top of the list.
+    bool operator<(const QTreeWidgetItem &other) const {
+        const UiColorItem *otherColor = dynamic_cast<const UiColorItem*>(&other);
+        if(name == "gui_accent")                              return treeWidget()->header()->sortIndicatorOrder() == Qt::AscendingOrder;
+        if((otherColor) && (otherColor->name == "gui_accent")) return treeWidget()->header()->sortIndicatorOrder() != Qt::AscendingOrder;
+        return QTreeWidgetItem::operator<(other);
+    }
 private:
     UiSyncList *baseList;
 protected:
