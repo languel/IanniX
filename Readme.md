@@ -5,6 +5,13 @@ IanniX is a graphical open-source sequencer, based on Iannis Xenakis works, for 
 
 **Download:** signed & notarized macOS (Apple Silicon) builds are on the [releases page](https://github.com/languel/IanniX/releases).
 
+> ⚠️ **Platform support:** this fork is developed and tested **only on Apple Silicon Macs** (arm64, recent macOS). The changes are not intentionally platform-specific, but Windows, Linux, and Intel Macs are untested here and may have regressed — use [upstream](https://github.com/buzzinglight/IanniX) for those platforms.
+
+## Branches
+- `main` — stable; releases are built from here
+- `dev-macos-arm64` — ongoing work (Apple Silicon focus)
+- `pr/*` — single-topic branches based on upstream `master`, intended for upstream pull requests
+
 ## Changes in this fork
 
 ### Build / platform
