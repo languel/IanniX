@@ -8,14 +8,21 @@
 #   A "Developer ID Application" certificate in the keychain
 #   notarytool keychain profile (xcrun notarytool store-credentials <profile>)
 #
-# Usage: Tools/build-macos.sh [notary-profile]
+# Signing configuration comes from the environment (or Tools/build-macos.local.env,
+# which is gitignored — keep personal values there):
+#   IANNIX_SIGN_IDENTITY   e.g. "Developer ID Application: Your Name (TEAMID)"
+#   IANNIX_NOTARY_PROFILE  notarytool keychain profile name
+#
+# Usage: Tools/build-macos.sh
 set -e
 
-QT=/opt/homebrew/opt/qt@5
-IDENTITY="Developer ID Application: liubomir borissov (K39T7B8529)"
-PROFILE="${1:-UPBGE_NOTARY}"
-VERSION=$(plutil -extract CFBundleShortVersionString raw Info.plist)
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
+[ -f "$ROOT/Tools/build-macos.local.env" ] && source "$ROOT/Tools/build-macos.local.env"
+
+QT="${IANNIX_QT_DIR:-/opt/homebrew/opt/qt@5}"
+IDENTITY="${IANNIX_SIGN_IDENTITY:?set IANNIX_SIGN_IDENTITY (see header comment)}"
+PROFILE="${IANNIX_NOTARY_PROFILE:?set IANNIX_NOTARY_PROFILE (see header comment)}"
+VERSION=$(plutil -extract CFBundleShortVersionString raw "$ROOT/Info.plist")
 
 cd "$ROOT"
 mkdir -p build && cd build
