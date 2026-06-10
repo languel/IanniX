@@ -22,6 +22,7 @@
 */
 
 #include "application.h"
+#include <QDir>
 
 Render*             Application::render = 0;
 ApplicationCurrent* Application::current = 0;
@@ -32,6 +33,21 @@ QFileInfo           Application::pathDocuments;
 QFileInfo           Application::pathCurrent;
 QFileInfo           Application::pathTools;
 QFileInfo           Application::pathExamples;
+QFileInfo           Application::pathExamplesBundle, Application::pathPatchesBundle;
+
+void Application::syncBundleContent(const QString &source, const QString &destination) {
+    QDir sourceDir(source);
+    if(!sourceDir.exists())
+        return;
+    QDir().mkpath(destination);
+    foreach(const QFileInfo &entry, sourceDir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot)) {
+        const QString target = destination + "/" + entry.fileName();
+        if(entry.isDir())
+            syncBundleContent(entry.absoluteFilePath(), target);
+        else if(!QFile::exists(target))
+            QFile::copy(entry.absoluteFilePath(), target);
+    }
+}
 QFileInfo           Application::pathPatches;
 
 UiString Application::defaultMessageTrigger   = QString("osc://ip_out:port_out/trigger trigger_id trigger_group_id trigger_value_x trigger_value_y trigger_value_z trigger_xPos trigger_yPos trigger_zPos cursor_id cursor_group_id, midi://midi_out/notef 1 trigger_value_y trigger_value_x trigger_duration, tcp:// trigger trigger_id trigger_group_id trigger_value_x trigger_value_y trigger_value_z trigger_xPos trigger_yPos trigger_zPos cursor_id cursor_group_id");

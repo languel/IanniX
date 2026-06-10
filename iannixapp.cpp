@@ -81,20 +81,6 @@ IanniXApp::IanniXApp(int &argc, char **argv) :
     iannix = 0;
 }
 
-static void syncBundleContent(const QString &source, const QString &destination) {
-    QDir sourceDir(source);
-    if(!sourceDir.exists())
-        return;
-    QDir().mkpath(destination);
-    foreach(const QFileInfo &entry, sourceDir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot)) {
-        const QString target = destination + "/" + entry.fileName();
-        if(entry.isDir())
-            syncBundleContent(entry.absoluteFilePath(), target);
-        else if(!QFile::exists(target))
-            QFile::copy(entry.absoluteFilePath(), target);
-    }
-}
-
 void IanniXApp::launch(int &argc, char **argv) {
     //Display splash
     Application::splash = new UiSplashScreen(QPixmap(":/general/res_splash.png"));
@@ -141,8 +127,10 @@ void IanniXApp::launch(int &argc, char **argv) {
     //saving into the bundle would break its code signature. Copy missing files
     //only — user edits are never overwritten; deleting a file restores the
     //original at next launch.
-    syncBundleContent(Application::pathExamples.absoluteFilePath(), Application::pathDocuments.absoluteFilePath() + "/Examples");
-    syncBundleContent(Application::pathPatches .absoluteFilePath(), Application::pathDocuments.absoluteFilePath() + "/Patches");
+    Application::pathExamplesBundle = Application::pathExamples;
+    Application::pathPatchesBundle  = Application::pathPatches;
+    Application::syncBundleContent(Application::pathExamplesBundle.absoluteFilePath(), Application::pathDocuments.absoluteFilePath() + "/Examples");
+    Application::syncBundleContent(Application::pathPatchesBundle .absoluteFilePath(), Application::pathDocuments.absoluteFilePath() + "/Patches");
     Application::pathExamples = QFileInfo(Application::pathDocuments.absoluteFilePath() + "/Examples");
     Application::pathPatches  = QFileInfo(Application::pathDocuments.absoluteFilePath() + "/Patches");
 

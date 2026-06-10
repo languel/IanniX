@@ -47,7 +47,9 @@ public:
     bool isOpened;
 
     // Public re-list hook (e.g. after the macOS folder-permission prompt).
-    void refreshFromDisk() { fileWatcherDirChanged(QString()); }
+    // Calls syncWith directly: the watcher path goes through currentDepth,
+    // which is still -1 (= no-op) when the initial listing failed.
+    void refreshFromDisk() { syncWith(5); }
 
     // Unsaved scores (no file on disk yet, e.g. "New score") sort first.
     bool operator<(const QTreeWidgetItem &other) const {

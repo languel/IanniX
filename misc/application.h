@@ -138,6 +138,9 @@ class Application : public QObject {
 
 public:
     static QFileInfo pathApplication, pathDocuments, pathCurrent, pathExamples, pathTools, pathPatches;
+    static QFileInfo pathExamplesBundle, pathPatchesBundle;
+    // Copy bundle content into the user folder, missing files only.
+    static void syncBundleContent(const QString &source, const QString &destination);
     static Render *render;
     static ApplicationCurrent *current;
     static void* synchroLoopGuard;

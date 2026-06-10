@@ -119,8 +119,12 @@ UiInspector::UiInspector(QWidget *parent) :
     // First launch: the macOS Documents-folder permission prompt can race the
     // initial listing, leaving the browser empty until restart. Re-list once
     // the dialog has had a chance to be answered.
-    foreach(const int delay, QList<int>() << 3000 << 8000)
+    foreach(const int delay, QList<int>() << 3000 << 8000 << 20000)
         QTimer::singleShot(delay, this, [this]() {
+            // The very first copy can also have failed before permission was granted.
+            Application::syncBundleContent(Application::pathExamplesBundle.absoluteFilePath(), Application::pathDocuments.absoluteFilePath() + "/Examples");
+            Application::syncBundleContent(Application::pathPatchesBundle .absoluteFilePath(), Application::pathDocuments.absoluteFilePath() + "/Patches");
+            UiFileItem::syncWith(QFileInfoList() << QFileInfo(Application::pathDocuments.absoluteFilePath() + "/"), ui->files->getTree());
             for(quint16 i = 0 ; i < ui->files->getTree()->topLevelItemCount() ; i++)
                 ((UiFileItem*)ui->files->getTree()->topLevelItem(i))->refreshFromDisk();
         });
