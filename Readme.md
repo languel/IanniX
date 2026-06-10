@@ -3,7 +3,14 @@ About IanniX
 This is a personal fork of the original [IanniX](https://github.com/buzzinglight/IanniX) project, a graphical real-time open-source sequencer for digital art.  
 IanniX is a graphical open-source sequencer, based on Iannis Xenakis works, for digital art. IanniX syncs via Open Sound Control (OSC) events and curves to your real-time environment.
 
-**Download:** signed & notarized macOS (Apple Silicon) builds are on the [releases page](https://github.com/languel/IanniX/releases).
+Getting started
+===============
+1. Download the latest `IanniX-…-macOS-arm64.dmg` from the [releases page](https://github.com/languel/IanniX/releases)
+2. Open the DMG and drag **IanniX** into **Applications**
+3. Launch it and open a score from **FILES → Examples** in the Inspector panel — press play
+4. Toggle light/dark with the ☀ button in the toolbar; `Cmd+,` opens the preferences (Config tab)
+
+That's it — no extra installs needed. To send/receive OSC, MIDI, or Syphon video, see the **CONFIG** tab in the Inspector.
 
 > ⚠️ **Platform support:** this fork is developed and tested **only on Apple Silicon Macs** (arm64, recent macOS). The changes are not intentionally platform-specific, but Windows, Linux, and Intel Macs are untested here and may have regressed — use [upstream](https://github.com/buzzinglight/IanniX) for those platforms.
 
