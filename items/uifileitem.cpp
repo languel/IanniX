@@ -46,7 +46,9 @@ UiFileItem::UiFileItem(const QFileInfo &file, UiFileItem *_parent, QFileSystemWa
     }
     isFile = true;
     populate(file);
-    highlight();
+    // No highlight() here: selecting each item during bulk directory listing
+    // expands every ancestor, leaving the whole tree expanded after startup.
+    // User-initiated creations select their new item explicitly.
 }
 
 const QString UiFileItem::dateToString(const QDateTime &date) {
