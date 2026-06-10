@@ -36,9 +36,14 @@ That's it — no extra installs needed. To send/receive OSC, MIDI, or Syphon vid
 ### UI / theming
 - Coherent dark and light themes for the whole interface (toolbar, inspector, transport, helper, script editor), switched live with the sun toolbar button — the toggle previously only changed the score canvas colors
 - Theme engine in `misc/uitheme.cpp`: one parameterized stylesheet + per-theme palette applied app-wide (Fusion base style). Do not add color-bearing stylesheets to `.ui` files — widget-level stylesheets block app-stylesheet updates on theme switches
+- Configurable interface accent color (`gui_accent` in INFOS → RESOURCES → COLORS, default muted steel blue); a RESTORE DEFAULT COLORS button resets the palette
 - Script editor: dark/light syntax color schemes, theme-following help pane, line-number gutter no longer collides with the scrollbar
-- Compact playback-speed slider next to the speed field
-- Keyboard shortcuts: `Cmd+Shift+C` adds a cursor; `Cmd+,` opens Preferences (Config tab), revealing the Inspector if it was closed
+- Transport: playback rate as a compact number box next to the clock
+- Keyboard shortcuts: `Cmd+0` resets the view to 2D (object editing is disabled while the camera is rotated); `Cmd+Shift+C` adds a cursor; `Cmd+,` opens Preferences (Config tab), revealing the Inspector if it was closed
+
+### Stability
+- Fixed a crash (use-after-free) when opening scores after the file browser refreshed itself
+- The file browser recovers automatically if the first launch races the macOS Documents-folder permission prompt
 
 ### Using Syphon
 - **Out** (CONFIG → SOFTWARE → Enable Syphon Out): publishes the score render as a Syphon server for any client (MadMapper, OBS, VDMX…)
