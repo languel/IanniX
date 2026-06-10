@@ -99,6 +99,7 @@ UiView::UiView(QWidget *parent) :
     connect(ui->actionZoom_in,           SIGNAL(triggered()), ui->render, SLOT(zoomIn()));
     connect(ui->actionZoom_out,          SIGNAL(triggered()), ui->render, SLOT(zoomOut()));
     connect(ui->actionZoom_initial,      SIGNAL(triggered()), ui->render, SLOT(zoomInitial()));
+    connect(ui->actionResetView,         SIGNAL(triggered()), ui->render, SLOT(resetView()));
     connect(ui->actionAbout,             SIGNAL(triggered()), about, SLOT(show()));
     connect(ui->actionPreferences,       SIGNAL(triggered()), ui->inspector, SLOT(showConfigTab()));
     connect(ui->actionQuit,              SIGNAL(triggered()), SLOT(close()));

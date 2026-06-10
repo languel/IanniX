@@ -183,6 +183,7 @@ public slots:
     void zoomIn();
     void zoomOut();
     void zoomInitial();
+    void resetView();
 
 signals:
     void objectSelected(UiRenderSelection);

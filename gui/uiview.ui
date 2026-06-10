@@ -188,6 +188,7 @@
     <addaction name="separator"/>
     <addaction name="actionZoom_in"/>
     <addaction name="actionZoom_initial"/>
+    <addaction name="actionResetView"/>
     <addaction name="actionZoom_out"/>
     <addaction name="separator"/>
     <addaction name="actionResize"/>
@@ -708,6 +709,23 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Shift+0</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="actionResetView">
+   <property name="text">
+    <string>Reset view (2D)</string>
+   </property>
+   <property name="toolTip">
+    <string>Resets camera rotation, pan and zoom — object editing only works in the flat 2D view</string>
+   </property>
+   <property name="statusTip">
+    <string>Reset view|Object selection and editing are disabled while the camera is rotated in 3D. This resets rotation, pan and zoom back to the flat 2D view (same as Alt+double-click on the score).</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
    </property>
    <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>

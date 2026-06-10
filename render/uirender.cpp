@@ -1282,6 +1282,15 @@ void UiRender::zoomOut() {
 void UiRender::zoomInitial() {
     setZoom(100);
 }
+void UiRender::resetView() {
+    // Back to the editable 2D view: selection is disabled while the camera
+    // is rotated, and the only other reset is Alt+double-click on the score.
+    cameraPerspectiveChanged();
+    Application::current->execute(QString("%1 0 0 0").arg(COMMAND_ROTATE), ExecuteSourceGui);
+    Application::current->execute(QString("%1 0 0").arg(COMMAND_CENTER), ExecuteSourceGui);
+    translationDest = NxPoint();
+    setZoom(100);
+}
 
 
 
