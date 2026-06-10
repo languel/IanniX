@@ -132,6 +132,8 @@ QString UiTheme::stylesheet(bool light) {
         c["EDITOR_TEXT"]         = "#1A1A1A";
         c["EDITOR_SCROLL"]       = "#C9C6BD";
         c["HELP_BG"]             = "#EEEDE8";
+        c["TOOLTIP_BG"]          = "rgb(250, 249, 245)";
+        c["TOOLTIP_TEXT"]        = "rgb(25, 25, 25)";
     } else {
         c["TEXT_STRONG"]         = "white";
         c["TEXT"]                = "rgb(210, 210, 210)";
@@ -173,6 +175,8 @@ QString UiTheme::stylesheet(bool light) {
         c["EDITOR_TEXT"]         = "#FFFFFF";
         c["EDITOR_SCROLL"]       = "#404040";
         c["HELP_BG"]             = "#232323";
+        c["TOOLTIP_BG"]          = "rgb(45, 45, 45)";
+        c["TOOLTIP_TEXT"]        = "rgb(210, 210, 210)";
     }
     c["ACCENT"] = "rgb(0, 187, 255)";
 
@@ -491,6 +495,13 @@ JSEdit QScrollBar:vertical, JSEdit QScrollBar:horizontal {
 }
 JSEdit QScrollBar::handle:vertical, JSEdit QScrollBar::handle:horizontal {
 	background: %EDITOR_SCROLL%;
+}
+
+QToolTip {
+	background-color: %TOOLTIP_BG%;
+	color:            %TOOLTIP_TEXT%;
+	border:           1px solid %TOOLTIP_BG%;
+	padding:          3px;
 }
 
 /* HELP PANES — match the generated HTML body background so unrendered
