@@ -435,6 +435,11 @@ QWidget#timeEdit, QWidget#perfCpuEdit, QWidget#perfOpenGLEdit, QWidget#perfSched
 	font:             9px;
 	color:            %TEXT_DIM%;
 }
+QLabel#speedRateLabel {
+	font:  8px "Museo Sans", "Museo Sans 500", "Arial";
+	color: %TEXT_DIM%;
+	min-height: 8px;
+}
 QLineEdit#timeEdit {
 	font:  40px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida";
 	color: %ACCENT%;

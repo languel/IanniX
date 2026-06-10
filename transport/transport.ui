@@ -265,22 +265,37 @@
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
-        <layout class="QHBoxLayout" name="speedBoxLayout">
+        <layout class="QVBoxLayout" name="speedBoxColumn">
          <property name="spacing">
-          <number>5</number>
+          <number>2</number>
          </property>
          <property name="leftMargin">
           <number>12</number>
          </property>
          <property name="topMargin">
-          <number>0</number>
+          <number>6</number>
          </property>
          <property name="rightMargin">
           <number>12</number>
          </property>
          <property name="bottomMargin">
-          <number>0</number>
+          <number>6</number>
          </property>
+         <item>
+          <widget class="QLabel" name="speedRateLabel">
+           <property name="text">
+            <string>RATE</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignHCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="speedBoxLayout">
+           <property name="spacing">
+            <number>5</number>
+           </property>
 <item>
             <widget class="QDoubleSpinBox" name="speedSpin">
              <property name="minimumSize">
@@ -350,6 +365,8 @@ QPushButton:disabled {
             </widget>
            </item>
         </layout>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
@@ -382,6 +399,19 @@ QPushButton:disabled {
             <number>0</number>
            </property>
           </layout>
+         </item>
+         <item>
+          <spacer name="logBottomSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>1</width>
+             <height>1</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          
         </layout>

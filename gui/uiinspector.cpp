@@ -22,6 +22,7 @@
 */
 
 #include "uiinspector.h"
+#include <QTimer>
 #include "objects/nxdocument.h"
 #include "ui_uiinspector.h"
 
@@ -115,6 +116,14 @@ UiInspector::UiInspector(QWidget *parent) :
     ui->files->importAsFiles = false;
     UiFileItem::configure(ui->files);
     UiFileItem::syncWith(QFileInfoList() << QFileInfo(Application::pathDocuments.absoluteFilePath() + "/"), ui->files->getTree());
+    // First launch: the macOS Documents-folder permission prompt can race the
+    // initial listing, leaving the browser empty until restart. Re-list once
+    // the dialog has had a chance to be answered.
+    foreach(const int delay, QList<int>() << 3000 << 8000)
+        QTimer::singleShot(delay, this, [this]() {
+            for(quint16 i = 0 ; i < ui->files->getTree()->topLevelItemCount() ; i++)
+                ((UiFileItem*)ui->files->getTree()->topLevelItem(i))->refreshFromDisk();
+        });
     ui->files->getTree()->collapseAll();
     for(quint16 i = 0 ; i < ui->files->getTree()->topLevelItemCount() ; i++) {
         UiFileItem *searchItem = ((UiFileItem*)ui->files->getTree()->topLevelItem(i))->find(Application::pathApplication.absoluteFilePath() + "/IanniX/");

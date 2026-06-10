@@ -46,6 +46,9 @@ public:
     bool isFile;
     bool isOpened;
 
+    // Public re-list hook (e.g. after the macOS folder-permission prompt).
+    void refreshFromDisk() { fileWatcherDirChanged(QString()); }
+
     // Unsaved scores (no file on disk yet, e.g. "New score") sort first.
     bool operator<(const QTreeWidgetItem &other) const {
         const UiFileItem *otherFile = dynamic_cast<const UiFileItem*>(&other);
