@@ -320,7 +320,7 @@ void NxDocument::askFileClose() {
 }
 void NxDocument::restoreDefaults() {
     Render::defaultColors.insert("background_texture_tint"          , QColor(255, 255, 255, 255));
-    Render::defaultColors.insert("gui_accent"                       , QColor(  0, 187, 255, 255));
+    Render::defaultColors.insert("gui_accent"                       , QColor( 85, 138, 169, 204));
     Render::defaultColors.insert("darktheme_background"             , QColor(  0,   0,   0, 255));
     Render::defaultColors.insert("darktheme_grid"                   , QColor(255, 255, 255,  35));
     Render::defaultColors.insert("darktheme_axis"                   , QColor(255, 255, 255,  25));

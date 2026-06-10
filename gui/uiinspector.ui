@@ -4127,6 +4127,16 @@ GOING FROM</string>
                </widget>
               </item>
               <item>
+               <widget class="QPushButton" name="colorsRestoreDefaults">
+                <property name="text">
+                 <string>RESTORE DEFAULT COLORS</string>
+                </property>
+                <property name="toolTip">
+                 <string>Resets all colors (including the interface accent) to their default values</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <spacer name="verticalSpacer_5">
                 <property name="orientation">
                  <enum>Qt::Vertical</enum>

@@ -74,7 +74,7 @@ void UiTheme::apply(bool light) {
         pal.setColor(QPalette::PlaceholderText, QColor(140, 140, 140));
         pal.setColor(QPalette::HighlightedText, Qt::white);
     }
-    QColor accentColor(0, 187, 255);
+    QColor accentColor(85, 138, 169, 204);
     if((Render::colors) && (Render::colors->contains("gui_accent")))
         accentColor = Render::colors->value("gui_accent");
     pal.setColor(QPalette::Highlight, accentColor);
@@ -182,7 +182,7 @@ QString UiTheme::stylesheet(bool light) {
         c["TOOLTIP_BG"]          = "rgb(45, 45, 45)";
         c["TOOLTIP_TEXT"]        = "rgb(210, 210, 210)";
     }
-    QColor accent(0, 187, 255);
+    QColor accent(85, 138, 169, 204);
     if((Render::colors) && (Render::colors->contains("gui_accent")))
         accent = Render::colors->value("gui_accent");
     c["ACCENT"] = QString("rgba(%1, %2, %3, %4)").arg(accent.red()).arg(accent.green()).arg(accent.blue()).arg(accent.alpha());

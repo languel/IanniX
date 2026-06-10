@@ -22,6 +22,7 @@
 */
 
 #include "uiinspector.h"
+#include "objects/nxdocument.h"
 #include "ui_uiinspector.h"
 
 UiInspector::UiInspector(QWidget *parent) :
@@ -103,6 +104,12 @@ UiInspector::UiInspector(QWidget *parent) :
     ui->ressourcesTextures->showDuplicate(false);
     Render::textures->configure(tr("Textures"),   ui->ressourcesTextures);
     Render::colors->configure(tr("Score colors"), ui->ressourcesColors);
+    connect(ui->colorsRestoreDefaults, &QPushButton::clicked, this, []() {
+        if((new UiMessageBox())->display(tr("Score colors"), tr("Restore all colors to their default values?"), QDialogButtonBox::Yes | QDialogButtonBox::No)) {
+            NxDocument::restoreDefaults();
+            Render::colors->update();
+        }
+    });
     ui->ressourcesColors->showDuplicate(false);
 
     ui->files->importAsFiles = false;

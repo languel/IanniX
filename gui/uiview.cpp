@@ -108,12 +108,14 @@ UiView::UiView(QWidget *parent) :
     connect(ui->actionPatchesFolder,     SIGNAL(triggered()), SLOT(actionPatchesFolder()));
     connect(ui->actionLockPos,           SIGNAL(triggered()), SLOT(editingStop()));
     Application::colorTheme            .setAction(ui->actionLight,                    "guiColorTheme");
-    connect(&Application::colorTheme, &UiBool::triggered, this, [](bool light) {
+    connect(&Application::colorTheme, &UiBool::triggered, this, [this](bool light) {
         UiTheme::apply(light);
+        ui->actionLight->setIcon(QIcon(light ? ":/actions/res_icon_light_dark.png" : ":/actions/res_icon_light_white.png"));
         if(UiHelp::statusHelpWidget)
             UiHelp::statusHelpWidget->statusHelp();
     });
     UiTheme::apply(Application::colorTheme);
+    ui->actionLight->setIcon(QIcon(Application::colorTheme ? ":/actions/res_icon_light_dark.png" : ":/actions/res_icon_light_white.png"));
     Application::paintAxisGrid         .setAction(ui->actionGrid,                     "guiPaintAxisGrid");
     Application::paintLabel            .setAction(ui->actionToggleLabel,              "guiPaintLabel");
     Application::mouseSnapX            .setAction(ui->actionSnapXGrid);
